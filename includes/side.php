@@ -36,6 +36,17 @@
     <!-- Side widget-->
     <div class="container">
         <h3>Registro</h3>
+
+        <!--Mostrar errrores -->
+        <?php if(isset($_SESSION['completado'])): ?>
+            <div class="alert-info">  <?php echo $_SESSION['completado']; ?> </div>
+        <?php elseif(isset($_SESSION['errores']['general'])): ?>
+        <div class="alert-danger">
+            <?php $_SESSION['errores']['general']; ?>
+        </div>
+        <?php endif; ?>
+
+
         <form action="register.php" method="POST">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
