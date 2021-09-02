@@ -1,39 +1,41 @@
 <?php require_once'includes/helpers.php'; ?>
 <!-- Side widgets-->
 <div class="col-lg-4">
-    <!-- Search widget-->
-    <div class="card mb-4">
-        <div class="card-header">Search</div>
-        <div class="card-body">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-            </div>
+    <!-- Login -->
+    <div class="container">
+        <!--Datos del usuario -->
+        <?php if(isset($_SESSION['usuario'])): ?>
+        <h4>Bienvenido,
+        <?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos']; ?>
+        </h4>
+        <br>
+        <a class="btn btn-outline-primary btn-sm" href="cerrar.php">Mis datos</a>
+        <a class="btn btn-outline-warning btn-sm" href="cerrar.php">Crear post</a>
+        <a class="btn btn-outline-info btn-sm" href="cerrar.php">Crear categoria</a>
+        <a class="btn btn-outline-danger btn-sm" href="cerrar.php">Cerrar sesion</a>
+        <?php endif; ?>
+
+        <h3 class="mt-3">Iniciar sesion</h3>
+        <!-- Errores -->
+        <?php if(isset($_SESSION['error_login'])): ?>
+        <div class="alert-danger">
+                <?= $_SESSION['error_login'] ?>
         </div>
-    </div>
-    <!-- Categories widget-->
-    <div class="card mb-4">
-        <div class="card-header">Categories</div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6">
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#!">Web Design</a></li>
-                        <li><a href="#!">HTML</a></li>
-                        <li><a href="#!">Freebies</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6">
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#!">JavaScript</a></li>
-                        <li><a href="#!">CSS</a></li>
-                        <li><a href="#!">Tutorials</a></li>
-                    </ul>
-                </div>
-            </div>
+        <?php endif; ?>
+    <form action="login.php" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Ingrese su email">
         </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña">
+        </div>
+        <input type="submit" name="submit" class="btn btn-primary mb-3" value="Ingresar">
+    </form>
     </div>
-    <!-- Side widget-->
+
+    <!-- Register-->
     <div class="container">
         <h3>Registro</h3>
 
