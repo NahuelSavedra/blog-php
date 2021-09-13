@@ -33,7 +33,7 @@ function conseguirCategorias($conexion)
 
 function conseguirPosts($conexion)
 {
-    $sql = "SELECT p.*,c.* FROM entradas p ".
+    $sql = "SELECT p.*,c.nombre AS 'categoria' FROM entradas p ".
     "INNER JOIN categorias c ON p.categoria_id = c.id ".
     "ORDER BY p.id DESC LIMIT 3";
 

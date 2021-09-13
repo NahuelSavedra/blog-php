@@ -14,8 +14,10 @@
                             while($post = mysqli_fetch_assoc($posts)):
                         ?>
                         <div class="card-body">
+                            <div class="small text-muted"><?= $post['fecha'] ?></div>
                             <h2 class="card-title"><?= $post['titulo'] ?></h2>
                             <p class="card-text"><?= substr($post['descripcion'], 0, 150). "..." ?></p>
+                            <p class="small text-muted"> Categoria: <span> <?= $post['categoria'] ?></span></p>
                             <a class="btn btn-primary" href="#!">Leer más</a>
                         </div>
                     <?php

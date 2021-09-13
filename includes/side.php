@@ -15,6 +15,8 @@
         <a class="btn btn-outline-danger btn-sm" href="cerrar.php">Cerrar sesion</a>
         <?php endif; ?>
 
+        <?php if(!isset($_SESSION['usuario'])): ?>
+
         <h3 class="mt-3">Iniciar sesion</h3>
         <!-- Errores -->
         <?php if(isset($_SESSION['error_login'])): ?>
@@ -77,6 +79,7 @@
         </form>
         <?php borrarError(); ?>
     </div>
+    <?php endif; ?>
 </div>
 </div>
 </div>
