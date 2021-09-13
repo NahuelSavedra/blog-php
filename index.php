@@ -15,7 +15,7 @@
                         ?>
                         <div class="card-body">
                             <h2 class="card-title"><?= $post['titulo'] ?></h2>
-                            <p class="card-text"><?= $post['descripcion'] ?></p>
+                            <p class="card-text"><?= substr($post['descripcion'], 0, 150). "..." ?></p>
                             <a class="btn btn-primary" href="#!">Leer más</a>
                         </div>
                     <?php
