@@ -5,14 +5,25 @@
                 <!-- Blog entries-->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
+
                     <div class="card mb-4">
+
+                        <?php
+                            $posts = conseguirPosts($db);
+                            if(!empty($posts)):
+                            while($post = mysqli_fetch_assoc($posts)):
+                        ?>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <h2 class="card-title"><?= $post['titulo'] ?></h2>
+                            <p class="card-text"><?= $post['descripcion'] ?></p>
+                            <a class="btn btn-primary" href="#!">Leer más</a>
                         </div>
+                    <?php
+                    endwhile;
+                    endif;
+                    ?>
                     </div>
+
 
                     <!-- Pagination-->
                     <nav aria-label="Pagination">

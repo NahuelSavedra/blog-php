@@ -30,3 +30,18 @@ function conseguirCategorias($conexion)
     }
     return $result;
 }
+
+function conseguirPosts($conexion)
+{
+    $sql = "SELECT p.*,c.* FROM entradas p ".
+    "INNER JOIN categorias c ON p.categoria_id = c.id ".
+    "ORDER BY p.id DESC LIMIT 3";
+
+    $posts = mysqli_query($conexion, $sql);
+
+    $result = array();
+    if($posts && mysqli_num_rows($posts) >= 1){
+        $result = $posts;
+    }
+    return $result;
+}
